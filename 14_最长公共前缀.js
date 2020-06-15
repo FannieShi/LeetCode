@@ -20,3 +20,28 @@ var longestCommonPrefix = function(strs) {
   }
   return result
 };
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+  let result = strs[0]
+  if(!result){ return '' }
+  for(let i=1; i<strs.length; i++){
+    if(!strs[i]){
+      result = ''
+      break;
+    }
+    for(let j=result.length; j>=0; j--){
+      if(strs[i].indexOf(result.slice(0, j)) == 0){
+        result = result.slice(0, j)
+        break;
+      }
+    }
+    if(!result){
+      break;
+    }
+  }
+  return result
+};
